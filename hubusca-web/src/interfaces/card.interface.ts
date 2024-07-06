@@ -1,6 +1,6 @@
 import { IProfile } from "./user.interface";
 
 export interface CardProps {
-  profile: IProfile | null;
+  profile?: IProfile | null;
+  isModal?: boolean;
 }
-

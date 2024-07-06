@@ -1,6 +1,6 @@
 import { useContext } from "react";
 import { Card } from "../../components/Card/Card";
-import { Header } from "../../components/Hearder/Header";
+import { Header } from "../../components/Header/Header";
 import { InputSearch } from "../../components/Input/Input";
 import { HubContext } from "../../providers";
 import { StyledHomePage } from "./style";

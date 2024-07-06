@@ -22,7 +22,7 @@ export const StyledCard = styled.section<CardProps>`
     gap: var(--gap-30);
     background-color: var(--brand-3);
     border-radius: var(--border-radius-4);
-    margin-bottom: 6rem;
+    margin-bottom: 1rem;
     padding: 1rem;
     font-family: var(--font-family-inter);
 
