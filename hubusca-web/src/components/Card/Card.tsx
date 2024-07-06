@@ -3,10 +3,10 @@ import { HubContext } from "../../providers";
 import { useContext } from "react";
 import { CardProps } from "../../interfaces/card.interface";
 import { useNavigate } from "react-router-dom";
+import { AiOutlineClose } from "react-icons/ai";
 
 export const Card = ({ profile }: CardProps) => {
-  const { setShowUser, getCurrentUser, getRepositories } =
-    useContext(HubContext);
+  const { setShowUser, getCurrentUser } = useContext(HubContext);
   const navigate = useNavigate();
 
   if (!profile) return null;
@@ -20,7 +20,7 @@ export const Card = ({ profile }: CardProps) => {
     if (profile) {
       navigate(`/profile/${login}`);
       getCurrentUser(profile);
-      getRepositories();
+      setShowUser(false);
     }
   };
 
@@ -28,7 +28,9 @@ export const Card = ({ profile }: CardProps) => {
     <StyledCard>
       <div className="card">
         <div className="card-button">
-          <button onClick={() => handleCloseModal()}>X</button>
+          <button onClick={() => handleCloseModal()}>
+            <AiOutlineClose />
+          </button>
         </div>
         <div className="card-img">
           <img src={avatar_url} alt="" onClick={() => handleImageClick()} />

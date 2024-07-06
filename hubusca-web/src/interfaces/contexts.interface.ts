@@ -18,4 +18,7 @@ export interface IHubContext {
   getProfile: (profile: string) => Promise<void>;
   getRepositories: () => Promise<void>;
   getCurrentUser: (user: IProfile) => void;
+  recentUsers: IProfile[] | [];
+  setRecentUsers: React.Dispatch<React.SetStateAction<IProfile[] | []>>;
+  getRecentUsers: () => IProfile[];
 }

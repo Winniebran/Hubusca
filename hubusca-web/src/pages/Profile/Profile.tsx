@@ -6,11 +6,11 @@ import { IRepository } from "../../interfaces/user.interface";
 import { Repository } from "../../components/Repository/Repository";
 
 export const Profile = () => {
-  const { profile, repositories } = useContext(HubContext);
+  const { currentUser, repositories } = useContext(HubContext);
 
-  if (!profile) return null;
+  if (!currentUser) return null;
   const { avatar_url, name, login, location, id, followers, public_repos } =
-    profile;
+    currentUser;
 
   const formatDate = (date: string) => {
     return new Date(date).toLocaleString("pt-BR", {

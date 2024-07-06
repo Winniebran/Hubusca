@@ -1,4 +1,5 @@
-import { createContext, useEffect, useState } from "react";
+/* eslint-disable react-hooks/exhaustive-deps */
+import { createContext, useCallback, useEffect, useState } from "react";
 import { ApiRequests } from "../services";
 import { IChildren, IHubContext } from "../interfaces/contexts.interface";
 import { IProfile, IRepository } from "../interfaces/user.interface";
@@ -11,12 +12,26 @@ export const HubProvider = ({ children }: IChildren) => {
   const [currentUser, setCurrentUser] = useState<IProfile | null>(null);
   const [repositories, setRepositories] = useState<IRepository[]>([]);
   const [showUser, setShowUser] = useState(false);
+  const [recentUsers, setRecentUsers] = useState<IProfile[]>([]);
+
+  const saveUserToLocalStorage = (user: IProfile) => {
+    let users = JSON.parse(localStorage.getItem("recentUsers") || "[]");
+    users = users.filter((profile: IProfile) => profile.login !== user.login);
+    users.unshift(user);
+    localStorage.setItem("recentUsers", JSON.stringify(users));
+    setRecentUsers(users);
+  };
+
+  const getRecentUsers = (): IProfile[] => {
+    return JSON.parse(localStorage.getItem("recentUsers") || "[]");
+  };
 
   const getProfile = async (username: string) => {
     if (!username) return;
     try {
       const { data } = await ApiRequests.get<IProfile>(`/users/${username}`);
       setProfile(data);
+      saveUserToLocalStorage(data);
       setShowUser(true);
     } catch (error) {
       console.log(error);
@@ -27,7 +42,7 @@ export const HubProvider = ({ children }: IChildren) => {
     setCurrentUser(user);
   };
 
-  const getRepositories = async () => {
+  const getRepositories = useCallback(async () => {
     if (!currentUser) return;
     try {
       const { data } = await ApiRequests.get<IRepository[]>(
@@ -37,14 +52,23 @@ export const HubProvider = ({ children }: IChildren) => {
     } catch (error) {
       console.log(error);
     }
-  };
+  }, [currentUser]);
 
   useEffect(() => {
-    username && getProfile(username);
-    currentUser && getRepositories();
+    if (currentUser) {
+      getRepositories();
+    }
+  }, [currentUser]);
+
+  useEffect(() => {
+    if (username) {
+      getProfile(username);
+    }
   }, []);
 
-  console.log(repositories);
+  useEffect(() => {
+    setRecentUsers(getRecentUsers());
+  }, []);
 
   return (
     <HubContext.Provider
@@ -62,6 +86,9 @@ export const HubProvider = ({ children }: IChildren) => {
         setRepositories,
         getRepositories,
         getCurrentUser,
+        getRecentUsers,
+        recentUsers,
+        setRecentUsers,
       }}
     >
       {children}

@@ -4,6 +4,7 @@ import { Header } from "../../components/Hearder/Header";
 import { InputSearch } from "../../components/Input/Input";
 import { HubContext } from "../../providers";
 import { StyledHomePage } from "./style";
+import { Menu } from "../../components/Menu/Menu";
 
 export const HomePage = () => {
   const { username, setUsername, profile, showUser } = useContext(HubContext);
@@ -13,6 +14,7 @@ export const HomePage = () => {
       <StyledHomePage>
         <Header />
         <InputSearch username={username} setUsername={setUsername} />
+        <Menu />
       </StyledHomePage>
       {showUser && <Card profile={profile} />}
     </>
