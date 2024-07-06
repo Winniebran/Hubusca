@@ -6,7 +6,7 @@ import { useNavigate } from "react-router-dom";
 import { AiOutlineClose } from "react-icons/ai";
 
 export const Card = ({ profile }: CardProps) => {
-  const { setShowUser, getCurrentUser } = useContext(HubContext);
+  const { setShowUser, getCurrentUser, showUser } = useContext(HubContext);
   const navigate = useNavigate();
 
   if (!profile) return null;
@@ -28,10 +28,13 @@ export const Card = ({ profile }: CardProps) => {
     <StyledCard>
       <div className="card">
         <div className="card-button">
-          <button onClick={() => handleCloseModal()}>
-            <AiOutlineClose />
-          </button>
+          {showUser ? (
+            <button onClick={() => handleCloseModal()}>
+              <AiOutlineClose />
+            </button>
+          ) : null}
         </div>
+
         <div className="card-img">
           <img src={avatar_url} alt="" onClick={() => handleImageClick()} />
         </div>
