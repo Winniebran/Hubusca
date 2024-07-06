@@ -59,6 +59,7 @@ export const Global = createGlobalStyle`
         --gap-20: 20px;
         --gap-25: 25px;
         --gap-30: 30px;
+        --gap-60: 60px;
 
         /* --- Boder Radius --- */
         --border-radius-4: 4px;
@@ -87,7 +88,6 @@ export const Global = createGlobalStyle`
     }
     
     body {
-        font-family: var(--font-family-lexend);
         width: 100vw;
         height: 100vh;
         overflow-x: hidden;
@@ -102,7 +102,6 @@ export const Global = createGlobalStyle`
     input, select{
         outline: none;
         background: transparent;
-        font-family: var(--font-family-inter);
     }
 
     button{
@@ -110,9 +109,9 @@ export const Global = createGlobalStyle`
         display: inline-flex;
 	    align-items: center;
 	    justify-content: center;
-        font-family: var(--font-family-inter);
         border: none;
         background: transparent;
         transition: 0.3s;
     }
+
 `;
