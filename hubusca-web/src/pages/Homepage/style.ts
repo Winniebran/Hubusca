@@ -1,9 +1,7 @@
 import styled from "styled-components";
 
 export const StyledHomePage = styled.main`
-  position: relative;
-  height: 100vh;
-  width: 100vw;
+  height: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;

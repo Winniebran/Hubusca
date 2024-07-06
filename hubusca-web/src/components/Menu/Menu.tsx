@@ -5,11 +5,11 @@ import { IProfile } from "../../interfaces/user.interface";
 import { StyledMenu } from "./style";
 
 export const Menu = () => {
-  const { recentUsers } = useContext(HubContext);
+  const { recentUsers, showUser } = useContext(HubContext);
 
   return (
     <StyledMenu>
-      {recentUsers.length ? (
+      {recentUsers.length && !showUser ? (
         <>
           <h3>Usuários acessados anteriormente:</h3>
           <div>

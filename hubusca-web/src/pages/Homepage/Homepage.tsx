@@ -15,8 +15,8 @@ export const HomePage = () => {
         <Header />
         <InputSearch username={username} setUsername={setUsername} />
         <Menu />
+        {showUser && <Card profile={profile} />}
       </StyledHomePage>
-      {showUser && <Card profile={profile} />}
     </>
   );
 };
