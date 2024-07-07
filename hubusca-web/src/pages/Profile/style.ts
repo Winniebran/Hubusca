@@ -21,23 +21,35 @@ export const StyledProfile = styled.section`
       object-fit: cover;
       border-radius: var(--border-radius-150);
     }
-  }
 
-  .profile-data {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    gap: var(--gap-5);
+    .profile-data {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: var(--gap-5);
 
-    span {
-      font-size: var(--size-body-1);
-      font-weight: var(--weight-500);
+      span {
+        font-size: var(--size-body-1);
+        font-weight: var(--weight-500);
+
+        @media (max-width: 500px) {
+          font-size: var(--size-body-3);
+        }
+      }
     }
-  }
 
-  .link {
-    font-size: var(--size-h1);
-    color: var(--brand-1);
+    .link {
+      font-size: var(--size-h1);
+      color: var(--brand-1);
+
+      @media (max-width: 500px) {
+        font-size: var(--size-h2);
+      }
+    }
+
+    @media (max-width: 500px) {
+      gap: var(--gap-20);
+    }
   }
 
   .profile-body {
@@ -62,6 +74,11 @@ export const StyledProfile = styled.section`
       justify-content: center;
       gap: var(--gap-30);
       margin: 10px 0;
+      font-size: var(--size-h7);
+
+      @media (max-width: 500px) {
+        font-size: var(--size-body-2);
+      }
 
       sub {
         font-size: var(--size-body-1);

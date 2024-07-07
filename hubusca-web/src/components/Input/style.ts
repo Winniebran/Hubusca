@@ -9,6 +9,10 @@ export const StyledInput = styled.div`
   justify-content: center;
   align-items: center;
 
+  @media (max-width: 500px) {
+    width: 20rem;
+  }
+
   input {
     width: 27rem;
     color: var(--brand-1);
