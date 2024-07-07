@@ -5,13 +5,17 @@ export const StyledMenu = styled.section`
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 60px;
+  gap: var(--gap-60);
 
   h3 {
     font-size: var(--size-h5);
     font-family: var(--font-family-inter);
     font-weight: var(--weight-500);
     padding: 10px;
+
+    @media (max-width: 500px) {
+      font-size: var(--size-h7);
+    }
   }
 
   div {
@@ -19,5 +23,6 @@ export const StyledMenu = styled.section`
     align-items: center;
     justify-content: space-evenly;
     flex-wrap: wrap;
+    gap: var(--gap-20);
   }
 `;

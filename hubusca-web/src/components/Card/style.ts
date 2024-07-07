@@ -26,6 +26,11 @@ export const StyledCard = styled.section<CardProps>`
     padding: 1rem;
     font-family: var(--font-family-inter);
 
+    @media (max-width: 500px) {
+      width: 15rem;
+      height: 20rem;
+    }
+
     @keyframes showDropDown {
       0% {
         opacity: 0;
@@ -54,6 +59,11 @@ export const StyledCard = styled.section<CardProps>`
         height: 150px;
         object-fit: cover;
         border-radius: var(--border-radius-150);
+
+        @media (max-width: 500px) {
+          width: 100px;
+          height: 100px;
+        }
       }
     }
 
@@ -65,12 +75,21 @@ export const StyledCard = styled.section<CardProps>`
 
       background-color: var(--brand-2);
       border-radius: var(--border-radius-4);
-      padding: 2rem 2rem;
+      padding: 2rem;
       gap: var(--gap-10);
+
+      @media (max-width: 500px) {
+        width: 180px;
+        padding: 1rem 0.5rem;
+      }
 
       span {
         font-size: var(--size-body-1);
         font-weight: var(--weight-500);
+
+        @media (max-width: 500px) {
+          font-size: var(--size-body-2);
+        }
       }
     }
   }

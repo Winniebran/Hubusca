@@ -8,6 +8,10 @@ export const StyledRepository = styled.a`
   border-radius: var(--border-radius-4);
   text-align: justify;
 
+  @media (max-width: 500px) {
+    padding: 10px;
+  }
+
   ul {
     li {
       span {
