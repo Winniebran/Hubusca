@@ -4,6 +4,7 @@ import { HubContext } from "../../providers";
 import { Link } from "react-router-dom";
 import { IRepository } from "../../interfaces/user.interface";
 import { Repository } from "../../components/Repository/Repository";
+import { PiKeyReturnFill } from "react-icons/pi";
 
 export const Profile = () => {
   const { currentUser, repositories } = useContext(HubContext);
@@ -24,9 +25,7 @@ export const Profile = () => {
     <StyledProfile>
       <div className="profile-img">
         <img src={avatar_url} alt="" />
-      </div>
-      <div className="profile-body">
-        <div className="profile-body-data">
+        <div className="profile-data">
           <span>{`Nome: ${name}`}</span>
           <span>{`Login: @${login}`}</span>
           <span>{location ? `Localização: ${location}` : null}</span>
@@ -34,8 +33,13 @@ export const Profile = () => {
           <span>{`Nº de Seguidores: ${followers}`}</span>
           <span>{`Nº de Repositórios públicos: ${public_repos}`}</span>
         </div>
-        <h1>Lista de Repositórios: </h1>
-        <div className="profile-body-list">
+        <Link to={"/"} className="link">
+          <PiKeyReturnFill />
+        </Link>
+      </div>
+      <div className="profile-body">
+        <h2>Lista de Repositórios: </h2>
+        <div className="profile-body-repository">
           {repositories.length ? (
             repositories.map((repository: IRepository, index: number) => (
               <Repository
@@ -52,7 +56,6 @@ export const Profile = () => {
             <sub>Ainda sem repositórios...</sub>
           )}
         </div>
-        <Link to={"/"}>Voltar</Link>
       </div>
     </StyledProfile>
   );

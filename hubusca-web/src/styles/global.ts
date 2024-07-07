@@ -76,6 +76,7 @@ export const Global = createGlobalStyle`
         border: none;
         box-sizing: border-box;
         background: none;
+        color: inherit;
     }
     
     input:-webkit-autofill {

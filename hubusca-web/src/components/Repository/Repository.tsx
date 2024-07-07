@@ -1,4 +1,5 @@
 import { IRepository } from "../../interfaces/user.interface";
+import { StyledRepository } from "./style";
 
 export const Repository = ({
   name,
@@ -11,14 +12,34 @@ export const Repository = ({
   const stringToLink = clone_url.replace(/"/g, "");
 
   return (
-    <a href={stringToLink} target="_blank">
+    <StyledRepository href={stringToLink} target="_blank">
       <ul>
-        {name && <li>{`nome do repositório: ${name}`}</li>}
-        {language && <li>{`liguagens: ${language}`}</li>}
-        {description && <li>{`descrição: ${description}`}</li>}
-        {created_at && <li>{`data de criação: ${created_at}`}</li>}
-        {pushed_at && <li>{`data do ultimo push: ${pushed_at}`}</li>}
+        {name && (
+          <li>
+            <span>Nome do repositório:</span> {name}
+          </li>
+        )}
+        {language && (
+          <li>
+            <span>Linguagens:</span> {language}
+          </li>
+        )}
+        {description && (
+          <li>
+            <span>Descrição:</span> {description}
+          </li>
+        )}
+        {created_at && (
+          <li>
+            <span>Data de criação:</span> {created_at}
+          </li>
+        )}
+        {pushed_at && (
+          <li>
+            <span>Data do último push:</span> {pushed_at}
+          </li>
+        )}
       </ul>
-    </a>
+    </StyledRepository>
   );
 };
