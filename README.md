@@ -23,7 +23,7 @@ https://hubusca-ashy.vercel.app/
 ## Rodando localmente
 
 ### Clone o projeto:
- `git clone git@github.com:CarlosX26/hubusca-app.git`
+ `git clone git@github.com:Winniebran/Hubusca.git`
 
 ### Entre no diretório do projeto:
   `cd hubusca-web`
